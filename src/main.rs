@@ -4,6 +4,7 @@ mod utils;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 const PATH: &str = r"data";
 
@@ -17,4 +18,7 @@ fn main() {
 
   println!("Result of 3-1: {}", day3::problem1(&path.join(r"3-1.txt")));
   println!("Result of 3-2: {}", day3::problem2(&path.join(r"3-1.txt")));
+
+  println!("Result of 4-1: {}", day4::problem1(&path.join(r"4-1.txt")));
+  println!("Result of 4-2: {}", day4::problem2(&path.join(r"4-1.txt")));
 }
