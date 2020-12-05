@@ -100,7 +100,7 @@ impl Passport {
   }
 
   fn validate_entry(key: &str, value: &str) -> bool {
-    let result =match key {
+    let result = match key {
       "ecl" => Self::validate_ecl(&value),
       "byr" => Self::validate_byr(&value),
       "iyr" => Self::validate_iyr(&value),
@@ -164,7 +164,7 @@ impl Passport {
           seen_keys.insert(k.clone());
         }
       })
-      .collect::<HashMap<_,_>>();
+      .collect::<HashMap<_, _>>();
 
     if valid {
       if let Some(p) = Self::from_map(filtered)
