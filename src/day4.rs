@@ -167,15 +167,8 @@ impl Passport {
       .collect::<HashMap<_, _>>();
 
     if valid {
-      if let Some(p) = Self::from_map(filtered)
-      {
-        Some(p)
-      } else {
-        println!("Invalid line: {}", line);
-        None
-      }
+      Self::from_map(filtered)
     } else {
-      println!("Invalid line: {}", line);
       None
     }
   }
