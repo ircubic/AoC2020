@@ -21,13 +21,25 @@ pub fn read_numbers_from_lines<P>(filename: P) -> io::Result<impl Iterator<Item=
   }))
 }
 
+/// Iterator that reads from a file entries that may span over multiple lines and are separated by
+/// empty lines.
+///
+/// The iterator will return one entry at a time as a String, with each line in the original entry
+/// now separated by a custom separator.
 pub struct EntryIterator {
   lines: Lines<BufReader<File>>,
+  separator: String
 }
 
 impl EntryIterator {
+  /// Create an iterator with the default separator (a space)
   pub fn new(path: &Path) -> Self {
-    EntryIterator { lines: read_lines(path).unwrap() }
+    Self::new_with_separator(path, " ")
+  }
+
+  pub fn new_with_separator(path: &Path, separator: &str) -> Self
+  {
+    EntryIterator { lines: read_lines(path).unwrap(), separator: separator.to_string() }
   }
 }
 
@@ -40,7 +52,7 @@ impl Iterator for EntryIterator
       .take_while(|x| x.is_ok() && x.as_ref().unwrap().trim().len() > 0)
       .map(|s| s.unwrap())
       .collect::<Vec<_>>()
-      .join(" ");
+      .join(&self.separator);
     match line.len() {
       0 => None,
       _ => Some(line)
