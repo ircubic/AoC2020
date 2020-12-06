@@ -1,4 +1,4 @@
-use crate::utils::read_lines;
+use AoC2020::utils::read_lines;
 use std::path::Path;
 
 #[derive(Debug)]

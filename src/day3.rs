@@ -1,5 +1,5 @@
 use std::path::Path;
-use crate::utils::read_lines;
+use AoC2020::utils::read_lines;
 
 struct Forest {
   tiles: Vec<bool>,

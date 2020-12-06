@@ -1,5 +1,5 @@
 use std::path::Path;
-use crate::utils::read_lines;
+use AoC2020::utils::read_lines;
 use std::cmp::{max, Ordering};
 
 /// These "boarding pass numbers" are actually just binary numbers.

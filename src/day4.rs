@@ -1,7 +1,7 @@
 use std::path::Path;
 use std::io::{Lines, BufReader};
 use std::fs::File;
-use crate::utils::{read_lines, EntryIterator};
+use AoC2020::utils::{read_lines, EntryIterator};
 use std::collections::{HashMap, HashSet};
 use regex::Regex;
 
