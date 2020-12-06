@@ -1,36 +1,10 @@
 use std::path::Path;
 use std::io::{Lines, BufReader};
 use std::fs::File;
-use crate::utils::read_lines;
+use crate::utils::{read_lines, EntryIterator};
 use std::collections::{HashMap, HashSet};
 use regex::Regex;
 
-struct EntryIterator {
-  lines: Lines<BufReader<File>>,
-}
-
-impl EntryIterator {
-  fn new(path: &Path) -> Self {
-    EntryIterator { lines: read_lines(path).unwrap() }
-  }
-}
-
-impl Iterator for EntryIterator
-{
-  type Item = String;
-
-  fn next(&mut self) -> Option<Self::Item> {
-    let line = self.lines.by_ref()
-      .take_while(|x| x.is_ok() && x.as_ref().unwrap().trim().len() > 0)
-      .map(|s| s.unwrap())
-      .collect::<Vec<_>>()
-      .join(" ");
-    match line.len() {
-      0 => None,
-      _ => Some(line)
-    }
-  }
-}
 
 #[derive(Debug)]
 struct Passport {
