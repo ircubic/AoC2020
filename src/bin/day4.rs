@@ -1,7 +1,5 @@
 use std::path::Path;
-use std::io::{Lines, BufReader};
-use std::fs::File;
-use AoC2020::utils::{read_lines, EntryIterator};
+use AoC2020::utils::EntryIterator;
 use std::collections::{HashMap, HashSet};
 use regex::Regex;
 
@@ -166,4 +164,10 @@ pub fn problem2(path: &Path) -> usize
 {
   EntryIterator::new(path)
     .map(|line| Passport::new_validated(&line)).filter(|p| p.is_some()).count()
+}
+
+fn main() {
+  let path = Path::new(r"data/4-1.txt");
+  println!("Result of problem 1: {}", problem1(path));
+  println!("Result of problem 2: {}", problem2(path));
 }

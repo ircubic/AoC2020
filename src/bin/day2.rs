@@ -51,3 +51,9 @@ pub fn problem2(path: &Path) -> usize {
     )
     .count()
 }
+
+fn main() {
+  let path = Path::new(r"data/2-1.txt");
+  println!("Result of problem 1: {}", problem1(path));
+  println!("Result of problem 2: {}", problem2(path));
+}

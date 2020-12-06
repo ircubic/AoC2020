@@ -92,6 +92,7 @@ pub fn problem2(path: &Path) -> usize {
     .unwrap()
 }
 
+#[cfg(test)]
 mod tests
 {
   use super::*;
@@ -113,4 +114,10 @@ mod tests
     assert_eq!(decode_boarding_pass("FFFBBBFRRR").unwrap(), Seating { row: 14, col: 7, seat_id: 119 });
     assert_eq!(decode_boarding_pass("BBFFBBFRLL").unwrap(), Seating { row: 102, col: 4, seat_id: 820 });
   }
+}
+
+fn main() {
+  let path = Path::new(r"data/5-1.txt");
+  println!("Result of problem 1: {}", problem1(path));
+  println!("Result of problem 2: {}", problem2(path));
 }

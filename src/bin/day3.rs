@@ -54,3 +54,9 @@ pub fn problem2(path: &Path) -> usize
     .map(|(x, y)| trees_for_slope(&forest, *x, *y))
     .product()
 }
+
+fn main() {
+  let path = Path::new(r"data/3-1.txt");
+  println!("Result of problem 1: {}", problem1(path));
+  println!("Result of problem 2: {}", problem2(path));
+}

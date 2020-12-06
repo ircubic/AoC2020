@@ -33,3 +33,8 @@ pub fn problem2(path: &Path) -> usize {
   panic!("Unable to find a solution")
 }
 
+fn main() {
+  let path = Path::new(r"data/1-1.txt");
+  println!("Result of problem 1: {}", problem1(path));
+  println!("Result of problem 2: {}", problem2(path));
+}
