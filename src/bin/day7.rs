@@ -335,8 +335,6 @@ dark violet bags contain no other bags.";
       dag.insert_edge(e)
     }
 
-    let nodes = dag.nodes.keys().collect::<Vec<_>>();
-
     assert_eq!(count_contained("shiny gold", &dag), 126);
   }
 }

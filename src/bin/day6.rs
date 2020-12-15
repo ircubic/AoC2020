@@ -1,5 +1,5 @@
 use std::path::Path;
-use std::collections::{HashSet, BTreeSet};
+use std::collections::BTreeSet;
 use AoC2020::utils::EntryIterator;
 
 fn get_unique_answers(entry: &str) -> Option<String>
