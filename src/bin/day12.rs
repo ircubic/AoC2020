@@ -115,7 +115,7 @@ impl Waypoint
     match instruction {
       Instruction::Right(r) => self.rotate(r as isize),
       Instruction::Left(l) => self.rotate(-(l as isize)),
-      Instruction::Forward(n) => (),
+      Instruction::Forward(_) => (),
       Instruction::North(n) => self.translate(0, n as isize),
       Instruction::East(n) => self.translate(n as isize, 0),
       Instruction::South(n) => self.translate(0, -(n as isize)),

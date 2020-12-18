@@ -103,12 +103,7 @@ impl BagDag {
       })
   }
 
-  fn get_edge(&self, left: &str, right: &str) -> Option<BagEdge>
-  {
-    self.get_edges(&left)
-      .find(|e| e.right == right)
-  }
-
+  #[cfg(test)]
   fn get_nodes(&self) -> impl Iterator<Item=&str>
   {
     self.nodes.keys().map(|str| str.as_str())
@@ -297,8 +292,6 @@ dotted black bags contain no other bags.";
       dag.insert_edge(e)
     }
 
-    let nodes = dag.nodes.keys().collect::<Vec<_>>();
-
     assert_eq!(count_leaves_up("shiny gold", &dag), 4);
   }
 
@@ -318,8 +311,6 @@ dotted black bags contain no other bags.";
     for e in text.split("\n").flat_map(|l| parse_edges(l)) {
       dag.insert_edge(e)
     }
-
-    let nodes = dag.nodes.keys().collect::<Vec<_>>();
 
     assert_eq!(count_contained("shiny gold", &dag), 32);
 

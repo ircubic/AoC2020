@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::cmp::max;
 use std::path::Path;
 use AoC2020::utils::read_lines;
 

@@ -1,5 +1,3 @@
-use std::path::Path;
-
 // Data is so small, I'll just include it right here
 const NUM: usize = 1011416;
 const LINE: &str = "41,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,37,x,x,x,x,x,911,x,x,x,x,x,x,x,x,x,x,x,x,13,17,x,x,x,x,x,x,x,x,23,x,x,x,x,x,29,x,827,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,19";
@@ -39,7 +37,7 @@ fn problem2() -> usize
   let nums = LINE
     .split(',')
     .enumerate()
-    .filter(|(i, v)| *v != "x")
+    .filter(|(_, v)| *v != "x")
     .map(|(i, m)| (m.parse::<usize>().unwrap(), i))
     .collect::<Vec<_>>();
   chinese_remainder_theorem(nums)
