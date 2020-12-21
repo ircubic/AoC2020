@@ -59,3 +59,10 @@ impl Iterator for EntryIterator
     }
   }
 }
+
+pub fn split_in_two(s:&str, separator:&str) -> [String;2]
+{
+  let mut s : Vec<String> = s.split(separator).take(2).map(|s|s.to_string()).collect();
+  let back = s.pop().unwrap();
+  [s.pop().unwrap(), back]
+}
